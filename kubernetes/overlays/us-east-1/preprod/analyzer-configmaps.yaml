@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: analyzer
+data:
+  RECOGNIZERS_STORE_SVC_ADDRESS: recognizersstore:3004

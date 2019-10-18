@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api
+data:
+  REDIS_URL: redis-master:6379
+  REDIS_DB: "0"
+  REDIS_SSL: "false"
+  ANALYZER_SVC_ADDRESS: analyzer:3001
+  ANONYMIZER_SVC_ADDRESS: anonymizer:3001
+  ANONYMIZER_IMAGE_SVC_ADDRESS: anonymizer-image:3001
+  RECOGNIZERS_STORE_SVC_ADDRESS: recognizersstore:3004
+  OCR_SVC_ADDRESS: ocr:3001
+  SCHEDULER_SVC_ADDRESS: scheduler:3001

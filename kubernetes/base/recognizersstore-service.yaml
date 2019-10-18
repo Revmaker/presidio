@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: recognizersstore
+    service: recognizersstore
+  name: recognizersstore
+spec:
+  ports:
+  - name: grpc
+    port: 3004
+    protocol: TCP
+    targetPort: grpc
+  selector:
+    app: recognizersstore
