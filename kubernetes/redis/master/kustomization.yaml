@@ -1,3 +1,4 @@
 resources:
+- configmaps.yaml
 - statefulset.yaml
 - service.yaml
