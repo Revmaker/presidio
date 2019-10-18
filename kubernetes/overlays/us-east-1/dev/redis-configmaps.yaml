@@ -7,3 +7,4 @@ data:
   REDIS_URL: redis-master:6379
   REDIS_DB: "0"
   REDIS_SSL: "false"
+  REDIS_PASSWORD: ""

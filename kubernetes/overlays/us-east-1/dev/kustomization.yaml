@@ -19,8 +19,7 @@ generatorOptions:
 secretGenerator:
 - name: redis
   type: Opaque
-  commands:
-    REDIS_PASSWORD: "echo ''"
+  commands: {}
     # REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
 - name: analyzer
   type: Opaque
