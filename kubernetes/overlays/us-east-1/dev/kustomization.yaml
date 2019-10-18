@@ -1,4 +1,4 @@
-namespace: presidio
+namespace: dev-presidio
 bases:
 - ../../../base
 - ../../../redis/master

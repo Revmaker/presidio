@@ -15,5 +15,4 @@ fi
 
 cd kubernetes
 
-# ns=$(aws --region $region ssm get-parameter --name /presidio/$env/namespace --query 'Parameter.Value' --output text)
 /usr/local/bin/kustomize build overlays/${region}/${env} | /usr/local/bin/kubectl --kubeconfig ~/.kube/${env}--${region}.config apply -f -
