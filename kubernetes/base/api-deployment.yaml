@@ -33,7 +33,7 @@ spec:
         - configMapRef:
             name: common
         - configMapRef:
-            name: redis
+            name: redis-client
         - secretRef:
             name: api
         env:

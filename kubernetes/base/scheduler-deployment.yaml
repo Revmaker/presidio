@@ -31,7 +31,7 @@ spec:
         - configMapRef:
             name: scheduler
         - configMapRef:
-            name: redis
+            name: redis-client
         - configMapRef:
             name: common
         - secretRef:
