@@ -1,6 +1,8 @@
 resources:
 - api-service-account.yaml
 - scheduler-service-account.yaml
+- roles.yaml
+- role-bindings.yaml
 - analyzer-deployment.yaml
 - anonymizer-deployment.yaml
 - anonymizer-image-deployment.yaml
