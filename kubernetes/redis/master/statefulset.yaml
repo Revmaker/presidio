@@ -55,7 +55,7 @@ spec:
         - name: REDIS_REPLICATION_MODE
           value: master
         - name: ALLOW_EMPTY_PASSWORD
-          value: "no"
+          value: "yes"
         - name: REDIS_PORT
           value: "6379"
         livenessProbe:

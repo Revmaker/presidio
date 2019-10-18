@@ -36,6 +36,8 @@ spec:
             name: common
         - secretRef:
             name: recognizerstore
+        - secretRef:
+            name: redis
         env:
         - name: PRESIDIO_NAMESPACE
           valueFrom:

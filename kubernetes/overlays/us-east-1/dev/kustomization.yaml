@@ -20,7 +20,8 @@ secretGenerator:
 - name: redis
   type: Opaque
   commands:
-    REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
+    REDIS_PASSWORD: "echo ''"
+    # REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
 - name: analyzer
   type: Opaque
   commands: {}
@@ -32,16 +33,13 @@ secretGenerator:
   commands: {}
 - name: api
   type: Opaque
-  commands:
-    REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
+  commands: {}
 - name: ocr
   type: Opaque
   commands: {}
 - name: recognizerstore
   type: Opaque
-  commands:
-    REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
+  commands: {}
 - name: scheduler
   type: Opaque
-  commands:
-    REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
+  commands: {}
