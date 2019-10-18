@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: recognizersstore
+  name: recognizersstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recognizersstore
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: recognizersstore
+    spec:
+      containers:
+      - name: presidio
+        image: mcr.microsoft.com/presidio-recognizers-store:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3004
+          protocol: TCP
+          name: grpc
+        envFrom:
+        - configMapRef:
+            name: recognizerstore
+        - configMapRef:
+            name: redis
+        - secretRef:
+            name: recognizerstore
+        env:
+        - name: PRESIDIO_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: GRPC_PORT
+          value: "3004"
+        resources: {}
+      restartPolicy: Always

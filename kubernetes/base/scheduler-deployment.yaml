@@ -1,0 +1,58 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: scheduler
+  name: scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scheduler
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: scheduler
+    spec:
+      containers:
+      - name: presidio
+        image: mcr.microsoft.com/presidio-scheduler:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3001
+          protocol: TCP
+          name: grpc
+        envFrom:
+        - configMapRef:
+            name: scheduler
+        - configMapRef:
+            name: redis
+        - secretRef:
+            name: scheduler
+        env:
+        - name: PRESIDIO_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: GRPC_PORT
+          value: "3001"
+        - name: DATASINK_IMAGE_NAME
+          value: mcr.microsoft.com/presidio-datasink:latest
+        - name: DATASINK_PULL_POLICY
+          value: Always
+        - name: DATASINK_GRPC_PORT
+          value: "5000"
+        - name: COLLECTOR_IMAGE_NAME
+          value: mcr.microsoft.com/presidio-collector:latest
+        - name: COLLECTOR_IMAGE_PULL_POLICY
+          value: Always
+        resources: {}
+      restartPolicy: Always
+      serviceAccount: scheduler
+      serviceAccountName: scheduler

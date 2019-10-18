@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: anonymizer-image
+    service: anonymizer-image
+  name: anonymizer-image
+spec:
+  ports:
+  - name: grpc
+    port: 3001
+    protocol: TCP
+    targetPort: grpc
+  selector:
+    app: anonymizer-image

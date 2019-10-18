@@ -1,0 +1,17 @@
+resources:
+- api-service-account.yaml
+- scheduler-service-account.yaml
+- analyzer-deployment.yaml
+- anonymizer-deployment.yaml
+- anonymizer-image-deployment.yaml
+- api-deployment.yaml
+- ocr-deployment.yaml
+- recognizersstore-deployment.yaml
+- scheduler-deployment.yaml
+- analyzer-service.yaml
+- anonymizer-image-service.yaml
+- anonymizer-service.yaml
+- api-service.yaml
+- ocr-service.yaml
+- recognizersstore-service.yaml
+- scheduler-service.yaml
