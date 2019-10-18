@@ -30,6 +30,8 @@ spec:
         envFrom:
         - configMapRef:
             name: ocr
+        - configMapRef:
+            name: common
         - secretRef:
             name: ocr
         env:

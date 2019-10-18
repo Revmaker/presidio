@@ -32,6 +32,8 @@ spec:
             name: recognizerstore
         - configMapRef:
             name: redis
+        - configMapRef:
+            name: common
         - secretRef:
             name: recognizerstore
         env:

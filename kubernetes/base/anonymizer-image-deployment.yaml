@@ -30,6 +30,8 @@ spec:
         envFrom:
         - configMapRef:
             name: anonymizer-image
+        - configMapRef:
+            name: common
         - secretRef:
             name: anonymizer-image
         env:

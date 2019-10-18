@@ -30,6 +30,8 @@ spec:
         envFrom:
         - configMapRef:
             name: analyzer
+        - configMapRef:
+            name: common
         - secretRef:
             name: analyzer
         env:
