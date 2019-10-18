@@ -3,6 +3,8 @@ bases:
 - ../../../base
 - ../../../redis/master
 resources:
+- common-configmaps.yaml
+- redis-configmaps.yaml
 - analyzer-configmaps.yaml
 - anonymizer-configmaps.yaml
 - anonymizer-image-configmaps.yaml
