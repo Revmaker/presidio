@@ -101,7 +101,7 @@ spec:
         name: health
       - configMap:
           defaultMode: 420
-          name: redis
+          name: redis-conf
         name: config
       - emptyDir: {}
         name: redis-tmp-conf
