@@ -1,0 +1,31 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: analyzer
+spec:
+  replicas: 2
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: anonymizer
+spec:
+  replicas: 2
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 2
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ocr
+spec:
+  replicas: 2
