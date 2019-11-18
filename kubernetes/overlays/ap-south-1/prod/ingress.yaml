@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-passthrough: "true"
+    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.class: traefik
+  name: api
+spec:
+  rules:
+  - host: presidio.in.carlabs.com
+    http:
+      paths:
+      - backend:
+          serviceName: api
+          servicePort: 8080
