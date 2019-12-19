@@ -1,0 +1,44 @@
+namespace: staging-presidio
+bases:
+- ../../../base
+- ../../../redis/master
+resources:
+- common-configmaps.yaml
+- redis-configmaps.yaml
+- analyzer-configmaps.yaml
+- anonymizer-configmaps.yaml
+- anonymizer-image-configmaps.yaml
+- api-configmaps.yaml
+- ocr-configmaps.yaml
+- recognizerstore-configmaps.yaml
+- scheduler-configmaps.yaml
+- ingress.yaml
+patches: []
+generatorOptions:
+  disableNameSuffixHash: true
+secretGenerator:
+- name: redis
+  type: Opaque
+  commands: {}
+    # REDIS_PASSWORD: "aws --region us-east-1 secretsmanager get-secret-value --secret-id kubernetes/dev/presidio/secrets --query SecretString --output text | jq -j '.REDIS_PASSWORD'"
+- name: analyzer
+  type: Opaque
+  commands: {}
+- name: anonymizer
+  type: Opaque
+  commands: {}
+- name: anonymizer-image
+  type: Opaque
+  commands: {}
+- name: api
+  type: Opaque
+  commands: {}
+- name: ocr
+  type: Opaque
+  commands: {}
+- name: recognizerstore
+  type: Opaque
+  commands: {}
+- name: scheduler
+  type: Opaque
+  commands: {}
