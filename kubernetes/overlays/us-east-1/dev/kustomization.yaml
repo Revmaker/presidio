@@ -42,23 +42,8 @@ secretGenerator:
 - name: scheduler
   type: Opaque
   commands: {}
-- name: presidio-demo-presidio-api.analyze.bank-only
-  type: Opaque
-  commands:
-    presidio-demo-presidio-api.analyze.bank-only: |
-        echo '{"fields":[{"name":"PHONE_NUMBER"},{"name":"US_BANK_ACCOUNT_NUMBER"},{"name":"DATE_TIME"}]}'
-- name: presidio-demo-presidio-api.analyze.exclude-us-bank
-  type: Opaque
-  commands:
-    presidio-demo-presidio-api.analyze.exclude-us-bank: |
-        echo '{"fields":[{"name":"PHONE_NUMBER"},{"name":"LOCATION"},{"name":"DATE_TIME"},{"name":"NUMBERS"},{"name":"CREDIT_CARD"},{"name":"CRYPTO"},{"name":"EMAIL_ADDRESS"},{"name":"IBAN_CODE"},{"name":"NRP"},{"name":"IP_ADDRESS"},{"name":"US_DRIVER_LICENSE"},{"name":"US_ITIN"},{"name":"US_VIN"},{"name":"US_PASSPORT"},{"name":"DOMAIN_NAME"},{"name":"US_SSN"},{"name":"DATE_TIME"},{"name":"CAN_POSTAL"},{"name":"CAN_POSTAL"},{"name":"INDIAN_LAND_NUMBER"},{"name":"INDIAN_PHONE_NUMBER"},{"name":"UK_SORT_CODE"}]}'
 - name: presidio-demo-presidio-api.anonymize.anonymize-fields
   type: Opaque
   commands:
     presidio-demo-presidio-api.anonymize.anonymize-fields: |
         echo '{"fieldTypeTransformations":[{"fields":[{"name":"CREDIT_CARD"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"CRYPTO"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"EMAIL_ADDRESS"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"IBAN_CODE"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"NRP"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"IP_ADDRESS"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"LOCATION"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"PERSON"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"PHONE_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_BANK_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_DRIVER_LICENSE"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_ITIN"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_VIN"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_PASSPORT"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"CAN_ROUTING"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"CAN_TRANSIT"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"US_SSN"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"DOMAIN_NAME"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"DATE_TIME"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"CAN_POSTAL"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"INDIAN_LAND_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"INDIAN_PHONE_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}},{"fields":[{"name":"UK_SORT_CODE"}],"transformation":{"replaceValue":{"newValue":"\u003cRedacted\u003e"}}}]}'
-- name: presidio-demo-presidio-api.anonymize.redacted-fields
-  type: Opaque
-  commands:
-    presidio-demo-presidio-api.anonymize.redacted-fields: |
-        echo '{"fieldTypeTransformations":[{"fields":[{"name":"CREDIT_CARD"},{"name":"DOMAIN_NAME"},{"name":"CRYPTO"},{"name":"EMAIL_ADDRESS"},{"name":"IBAN_CODE"},{"name":"NRP"},{"name":"DATE_TIME"},{"name":"INDIAN_PHONE_NUMBER"}],"transformation":{"redactValue":{}}}]}'
