@@ -1,0 +1,95 @@
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: analyzer
+
+spec:
+  minReplicas: 1
+  maxReplicas: 4
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: analyzer
+  targetCPUUtilizationPercentage: 70
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: anonymizer
+
+spec:
+  minReplicas: 1
+  maxReplicas: 4
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: anonymizer
+  targetCPUUtilizationPercentage: 70
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: api
+
+spec:
+  minReplicas: 2
+  maxReplicas: 6
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api
+  targetCPUUtilizationPercentage: 70
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: ocr
+
+spec:
+  minReplicas: 1
+  maxReplicas: 4
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ocr
+  targetCPUUtilizationPercentage: 70
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: recognizersstore
+
+spec:
+  minReplicas: 1
+  maxReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: recognizersstore
+  targetCPUUtilizationPercentage: 70
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+
+metadata:
+  name: scheduler
+
+spec:
+  minReplicas: 1
+  maxReplicas: 4
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: scheduler
+  targetCPUUtilizationPercentage: 70

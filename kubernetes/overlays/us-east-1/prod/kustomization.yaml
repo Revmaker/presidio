@@ -1,7 +1,9 @@
 namespace: presidio
+
 bases:
 - ../../../base
 - ../../../redis/master
+
 resources:
 - common-configmaps.yaml
 - redis-configmaps.yaml
@@ -13,10 +15,14 @@ resources:
 - recognizerstore-configmaps.yaml
 - scheduler-configmaps.yaml
 - ingress.yaml
+- pdb.yaml
+- hpa.yaml
 patches:
 - replicas.yaml
+
 generatorOptions:
   disableNameSuffixHash: true
+
 secretGenerator:
 - name: redis
   type: Opaque
@@ -43,8 +49,8 @@ secretGenerator:
 - name: scheduler
   type: Opaque
   commands: {}
-- name: presidio-demo-presidio-api.anonymize.anonymize-fields
+- name: carlabs.anonymize.anonymize-fields
   type: Opaque
   commands:
-    presidio-demo-presidio-api.anonymize.anonymize-fields: |
+    carlabs.anonymize.anonymize-fields: |
         echo '{"fieldTypeTransformations":[{"fields":[{"name":"CREDIT_CARD"}],"transformation":{"replaceValue":{"newValue":"\u003credit-card\u003e"}}}, {"fields":[{"name":"CRYPTO"}],"transformation":{"replaceValue":{"newValue":"\u003ccrypto-wallet-number\u003e"}}},{"fields":[{"name":"EMAIL_ADDRESS"}],"transformation":{"replaceValue":{"newValue":"\u003cemail-address\u003e"}}},{"fields":[{"name":"IBAN_CODE"}],"transformation":{"replaceValue":{"newValue":"\u003ciban-code\u003e"}}},{"fields":[{"name":"NRP"}],"transformation":{"replaceValue":{"newValue":"\u003cperson-nationality\u003e"}}},{"fields":[{"name":"IP_ADDRESS"}],"transformation":{"replaceValue":{"newValue":"\u003cperson-ip-address\u003e"}}},{"fields":[{"name":"LOCATION"}],"transformation":{"replaceValue":{"newValue":"\u003cperson-location\u003e"}}},{"fields":[{"name":"PERSON"}],"transformation":{"replaceValue":{"newValue":"\u003cperson-name\u003e"}}},{"fields":[{"name":"PHONE_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cphone-number\u003e"}}},{"fields":[{"name":"US_BANK_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cus-bank-number\u003e"}}},{"fields":[{"name":"US_DRIVER_LICENSE"}],"transformation":{"replaceValue":{"newValue":"\u003cus-driver-license\u003e"}}},{"fields":[{"name":"US_ITIN"}],"transformation":{"replaceValue":{"newValue":"\u003cus-itin\u003e"}}},{"fields":[{"name":"US_VIN"}],"transformation":{"replaceValue":{"newValue":"\u003cus-vin\u003e"}}},{"fields":[{"name":"US_PASSPORT"}],"transformation":{"replaceValue":{"newValue":"\u003cus-passport\u003e"}}},{"fields":[{"name":"US_SSN"}],"transformation":{"replaceValue":{"newValue":"\u003cus-ssn\u003e"}}},{"fields":[{"name":"DOMAIN_NAME"}],"transformation":{"replaceValue":{"newValue":"\u003cdomain-name\u003e"}}},{"fields":[{"name":"DATE_TIME"}],"transformation":{"replaceValue":{"newValue":"\u003cdate-time\u003e"}}},{"fields":[{"name":"US_BANK_ROUTING_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cus-routing-number\u003e"}}},{"fields":[{"name":"US_BANK_ACCOUNT_NUMBER"}],"transformation":{"replaceValue":{"newValue":"\u003cus-bank-account-number\u003e"}}} ]}'

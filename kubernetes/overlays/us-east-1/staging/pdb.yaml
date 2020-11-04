@@ -1,0 +1,77 @@
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: analyzer
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: analyzer
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: anonymizer
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: anonymizer
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: api
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: api
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: ocr
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: ocr
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: recognizersstore
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: recognizersstore
+
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+
+metadata:
+  name: scheduler
+
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: scheduler
